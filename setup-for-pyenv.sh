@@ -1,6 +1,15 @@
 #!/bin/bash
-git clone https://github.com/anyenv/anyenv ~/.anyenv
-.anyenv/bin/anyenv init
+sudo apt -y install build-essential
+sudo apt -y install git
+sudo apt -y install zlib1g-dev
+sudo apt -y install libreadline-dev
+sudo apt -y install libssl-dev
+sudo apt -y install libbz2-dev
+sudo apt -y install libffi-dev
+sudo apt -y install libsqlite3-dev
+
+git clone https://github.com/anyenv/anyenv $HOME/.anyenv
+$HOME/.anyenv/bin/anyenv init
 anyenv install --init
 anyenv install pyenv
 

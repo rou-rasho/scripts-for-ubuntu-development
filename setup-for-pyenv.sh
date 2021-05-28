@@ -1,4 +1,5 @@
 #!/bin/bash
+PYTHON_VERSION="3.8.10";
 sudo apt -y install build-essential
 sudo apt -y install git
 sudo apt -y install zlib1g-dev
@@ -10,8 +11,8 @@ sudo apt -y install libsqlite3-dev
 
 git clone https://github.com/anyenv/anyenv $HOME/.anyenv
 $HOME/.anyenv/bin/anyenv init
-anyenv install --init
-anyenv install pyenv
+$HOME/.anyenv/bin/anyenv install --init
+$HOME/.anyenv/bin/anyenv install pyenv
 
 mkdir -p $HOME/.local/bin
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> $HOME/.bashrc
@@ -20,7 +21,6 @@ echo 'eval "$(anyenv init -)"' >> $HOME/.bashrc
 
 read -r -d '' VAR <<- EOM
   . $HOME/.bashrc;
-  PYTHON_VERSION="3.8.10";
   pyenv install ${PYTHON_VERSION};
   pyenv global ${PYTHON_VERSION};
   ln -s $HOME/.anyenv/envs/pyenv/shims/pip $HOME/.local/bin/pip;
